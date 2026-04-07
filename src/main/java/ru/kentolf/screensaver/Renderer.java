@@ -5,17 +5,35 @@ import java.awt.*;
 
 public class Renderer extends JPanel {
 
+    private Letter a;
+
+    public Renderer() {
+
+        this.a = Letter.createLetterA();
+
+        Timer timer = new Timer(16, e -> {
+
+            for (int i = 0; i < a.vertices.size(); i++) {
+                Vector v = a.vertices.get(i);
+                v.rotateY(0.02);
+            }
+
+            repaint();
+
+        });
+
+        timer.start();
+    }
+
     @Override
     protected void paintComponent (Graphics g) {
         super.paintComponent(g);
 
         g.setColor(Color.BLACK);
 
-        Letter a = Letter.createLetterA();
-
         int scale = 50;
-        int offsetX = 200;
-        int offsetY = 100;
+        int offsetX = getWidth() / 2;  // потому что не влазиет
+        int offsetY = getHeight() / 2 + 150;
 
         for (int i = 0; i < a.edges.size(); i++) {
             Edge edge = a.edges.get(i);

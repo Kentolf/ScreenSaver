@@ -8,4 +8,12 @@ class Vector {
         this.y = y;
         this.z = z;
     }
+
+    public void rotateY (double angle) {
+        double currentX = this.x;
+        double currentZ = this.z;
+
+        this.x = currentX * Math.cos(angle) - currentZ * Math.sin(angle);
+        this.z = currentX * Math.sin(angle) + currentZ * Math.cos(angle);
+    }
 }
