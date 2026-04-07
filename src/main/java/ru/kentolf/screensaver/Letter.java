@@ -18,11 +18,11 @@ class Letter {
     public static Letter createLetterA() {
         Letter a = new Letter();
 
-        a.addVertex(0, 0, 0);
-        a.addVertex(2, 6, 0);
-        a.addVertex(4, 0, 0);
-        a.addVertex(1, 3, 0);
-        a.addVertex(3, 3, 0);
+        a.addVertex(-2, -3, 0);
+        a.addVertex(0, 3, 0);
+        a.addVertex(2, -3, 0);
+        a.addVertex(-1, 0, 0);
+        a.addVertex(1, 0, 0);
 
         a.addEdge(0, 1);
         a.addEdge(1, 2);
