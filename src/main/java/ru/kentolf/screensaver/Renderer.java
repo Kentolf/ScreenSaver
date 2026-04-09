@@ -70,6 +70,13 @@ public class Renderer extends JPanel {
     protected void paintComponent (Graphics g) {
         super.paintComponent(g);
 
+        for (int i = 0; i < a.faces.size(); i++) {
+            Face currentFace = a.faces.get(i);
+            currentFace.calculateDepth(a.vertices);
+        }
+
+        a.faces.sort((f1, f2) -> Double.compare(f2.depth, f1.depth));
+
         for (int j = 0; j < a.faces.size(); j++) {
             Face face = a.faces.get(j);
 
