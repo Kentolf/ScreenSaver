@@ -13,9 +13,9 @@ public class Renderer extends JPanel {
     private final int halfHeight = 150;  // нужны, так как буква не долетает до рамок
     private final int scale = 50;
 
-    public Renderer() {
+    public Renderer(String text) {
 
-        this.a = Letter.createLetterA();
+        this.a = Letter.createWord(text);
 
         Timer timer = new Timer(16, e -> {
 
@@ -27,15 +27,16 @@ public class Renderer extends JPanel {
             posX += dx;
             posY += dy;
 
-            double maxAbsX = 0;
+            double maxRadius = 0;
             for (int i = 0; i < a.vertices.size(); i++) {
                 Vector v = a.vertices.get(i);
-                if (Math.abs(v.x) > maxAbsX) {
-                    maxAbsX = Math.abs(v.x);
+                double radius = Math.sqrt(v.x * v.x + v.z * v.z);
+                if (radius > maxRadius) {
+                    maxRadius = radius;
                 }
             }
 
-            int dynamicHalfWidth = (int) (maxAbsX * scale);
+            int dynamicHalfWidth = (int) (maxRadius * scale);
 
             int paddingY = 15;
 
