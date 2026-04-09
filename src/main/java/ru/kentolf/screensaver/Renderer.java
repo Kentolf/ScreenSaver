@@ -70,20 +70,22 @@ public class Renderer extends JPanel {
     protected void paintComponent (Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.BLACK);
+        for (int j = 0; j < a.faces.size(); j++) {
+            Face face = a.faces.get(j);
 
-        for (int i = 0; i < a.edges.size(); i++) {
-            Edge edge = a.edges.get(i);
+            int pointCount = face.vertexIndices.length;
+            int[] xPoints = new int[pointCount];
+            int[] yPoints = new int[pointCount];
 
-            Vector v1 = a.vertices.get(edge.start);
-            Vector v2 = a.vertices.get(edge.end);
+            for (int i = 0; i < pointCount; i++) {
+                int vertexIndex = face.vertexIndices[i];
+                Vector v = a.vertices.get(vertexIndex);
+                xPoints[i] = (int) (v.x * scale) + posX;
+                yPoints[i] = (int) (-v.y * scale) + posY;
+            }
 
-            int x1 = (int) (v1.x * scale) + posX;
-            int y1 = (int) (-v1.y * scale) + posY;
-            int x2 = (int) (v2.x * scale) + posX;
-            int y2 = (int) (-v2.y * scale) + posY;
-
-            g.drawLine(x1,y1,x2,y2);
+            g.setColor(face.color);
+            g.fillPolygon(xPoints, yPoints, pointCount);
         }
     }
 }
