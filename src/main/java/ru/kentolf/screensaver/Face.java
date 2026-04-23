@@ -1,7 +1,6 @@
 package ru.kentolf.screensaver;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Face {

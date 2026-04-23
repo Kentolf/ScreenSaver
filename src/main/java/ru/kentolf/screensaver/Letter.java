@@ -80,6 +80,13 @@ class Letter {
                 case 'Г':
                     buildLetterG(word, offsetX);
                     break;
+<<<<<<< HEAD
+=======
+                case 'Н':
+                case 'H':
+                    buildLetterN(word, offsetX);
+                    break;
+>>>>>>> 6674853 (full 3D geometry)
                 default:
                     break;
             }
@@ -89,6 +96,10 @@ class Letter {
     }
 
     private static void buildLetterA(Letter word, double offsetX) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6674853 (full 3D geometry)
         int o = word.vertices.size();
 
         word.addVertex(-2 + offsetX, -3, -1);
@@ -102,6 +113,7 @@ class Letter {
         word.addVertex(0.25 + offsetX, 0, -1);
         word.addVertex(-0.25 + offsetX, 0, -1);
 
+<<<<<<< HEAD
         word.addVertex(-2 + offsetX, -3, 1);
         word.addVertex(-1 + offsetX, -3, 1);
         word.addVertex(0 + offsetX, 1, 1);
@@ -113,6 +125,20 @@ class Letter {
         word.addVertex(0.25 + offsetX, 0, 1);
         word.addVertex(-0.25 + offsetX, 0, 1);
 
+=======
+
+        word.addVertex(-2 + offsetX, -3, 1);
+        word.addVertex(-1 + offsetX, -3, 1);
+        word.addVertex(0 + offsetX, 1, 1);
+        word.addVertex(0 + offsetX, 3, 1);
+        word.addVertex(2 + offsetX, -3, 1);
+        word.addVertex(1 + offsetX, -3, 1);
+        word.addVertex(-0.5 + offsetX, -1, 1);
+        word.addVertex(0.5 + offsetX, -1, 1);
+        word.addVertex(0.25 + offsetX, 0, 1);
+        word.addVertex(-0.25 + offsetX, 0, 1);
+
+>>>>>>> 6674853 (full 3D geometry)
         word.addFace(new Color(200, 0, 0), 0+o, 1+o, 2+o, 3+o);
         word.addFace(new Color(200, 0, 0), 3+o, 2+o, 5+o, 4+o);
         word.addFace(new Color(200, 0, 0), 6+o, 7+o, 8+o, 9+o);
@@ -161,5 +187,59 @@ class Letter {
         word.addFace(Color.GRAY, 3+o, 4+o, 10+o, 9+o);
         word.addFace(Color.DARK_GRAY, 5+o, 4+o, 10+o, 11+o);
         word.addFace(Color.GRAY, 0+o, 5+o, 11+o, 6+o);
+<<<<<<< HEAD
+=======
+    }
+
+    private static void buildLetterN(Letter word, double offsetX) {
+        int o = word.vertices.size();
+
+        word.addVertex(-2 + offsetX, -3, -1);
+        word.addVertex(-1 + offsetX, -3, -1);
+        word.addVertex(-1 + offsetX, -0.5, -1);
+        word.addVertex(1 + offsetX, -0.5, -1);
+        word.addVertex(1 + offsetX, -3, -1);
+        word.addVertex(2 + offsetX, -3, -1);
+        word.addVertex(2 + offsetX, 3, -1);
+        word.addVertex(1 + offsetX, 3, -1);
+        word.addVertex(1 + offsetX, 0.5, -1);
+        word.addVertex(-1 + offsetX, 0.5, -1);
+        word.addVertex(-1 + offsetX, 3, -1);
+        word.addVertex(-2 + offsetX, 3, -1);
+
+        word.addVertex(-2 + offsetX, -3, 1);
+        word.addVertex(-1 + offsetX, -3, 1);
+        word.addVertex(-1 + offsetX, -0.5, 1);
+        word.addVertex(1 + offsetX, -0.5, 1);
+        word.addVertex(1 + offsetX, -3, 1);
+        word.addVertex(2 + offsetX, -3, 1);
+        word.addVertex(2 + offsetX, 3, 1);
+        word.addVertex(1 + offsetX, 3, 1);
+        word.addVertex(1 + offsetX, 0.5, 1);
+        word.addVertex(-1 + offsetX, 0.5, 1);
+        word.addVertex(-1 + offsetX, 3, 1);
+        word.addVertex(-2 + offsetX, 3, 1);
+
+        word.addFace(new Color(200, 0, 0), 0+o, 1+o, 10+o, 11+o);
+        word.addFace(new Color(200, 0, 0), 2+o, 3+o, 8+o, 9+o);
+        word.addFace(new Color(200, 0, 0), 4+o, 5+o, 6+o, 7+o);
+
+        word.addFace(new Color(0, 0, 200), 12+o, 13+o, 22+o, 23+o);
+        word.addFace(new Color(0, 0, 200), 14+o, 15+o, 20+o, 21+o);
+        word.addFace(new Color(0, 0, 200), 16+o, 17+o, 18+o, 19+o);
+
+        word.addFace(Color.DARK_GRAY, 0+o, 1+o, 13+o, 12+o);
+        word.addFace(Color.GRAY, 1+o, 2+o, 14+o, 13+o);
+        word.addFace(Color.DARK_GRAY, 2+o, 3+o, 15+o, 14+o);
+        word.addFace(Color.GRAY, 3+o, 4+o, 16+o, 15+o);
+        word.addFace(Color.DARK_GRAY, 4+o, 5+o, 17+o, 16+o);
+        word.addFace(Color.GRAY, 5+o, 6+o, 18+o, 17+o);
+        word.addFace(Color.DARK_GRAY, 6+o, 7+o, 19+o, 18+o);
+        word.addFace(Color.GRAY, 7+o, 8+o, 20+o, 19+o);
+        word.addFace(Color.DARK_GRAY, 8+o, 9+o, 21+o, 20+o);
+        word.addFace(Color.GRAY, 9+o, 10+o, 22+o, 21+o);
+        word.addFace(Color.DARK_GRAY, 10+o, 11+o, 23+o, 22+o);
+        word.addFace(Color.GRAY, 11+o, 0+o, 12+o, 23+o);
+>>>>>>> 6674853 (full 3D geometry)
     }
 }

@@ -18,7 +18,7 @@ public class Main {
 
         JFrame frame = new JFrame();
 
-        frame.setSize(800, 600);
+        frame.setSize(1280, 720);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

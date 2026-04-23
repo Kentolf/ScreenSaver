@@ -10,7 +10,7 @@ public class Renderer extends JPanel {
     private int posY = 200;
     private int dx = 3;
     private int dy = 2;
-    private final int halfHeight = 150;  // нужны, так как буква не долетает до рамок
+    private final int halfHeight = 150;
     private final int scale = 50;
 
     public Renderer(String text) {
