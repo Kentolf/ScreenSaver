@@ -10,11 +10,13 @@ public class Renderer extends JPanel {
     private int posY = 200;
     private int dx = 3;
     private int dy = 2;
-    private final int halfHeight = 150;
-    private final int scale = 50;
+    private final int halfHeight;
+    private final int scale;
+    private final int paddingY = 15;
 
     public Renderer(String text) {
-
+        this.scale = Math.max(1200 / (text.length() * 5), 20);
+        this.halfHeight = 3 * scale;
         this.a = Letter.createWord(text);
 
         Timer timer = new Timer(16, e -> {
@@ -38,14 +40,13 @@ public class Renderer extends JPanel {
 
             int dynamicHalfWidth = (int) (maxRadius * scale);
 
-            int paddingY = 15;
-
             if (posX - dynamicHalfWidth < 0) {
                 posX = dynamicHalfWidth;
                 dx = -dx;
 
             }
-            else if (posX + dynamicHalfWidth > getWidth()) {
+            else
+                if (posX + dynamicHalfWidth > getWidth()) {
                 posX = getWidth() - dynamicHalfWidth;
                 dx = -dx;
             }
@@ -55,7 +56,8 @@ public class Renderer extends JPanel {
                 dy = -dy;
 
             }
-            else if (posY + halfHeight > getHeight() - paddingY) {
+            else
+                if (posY + halfHeight > getHeight() - paddingY) {
                 posY = getHeight() - halfHeight - paddingY;
                 dy = -dy;
             }

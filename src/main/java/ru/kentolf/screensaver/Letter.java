@@ -5,7 +5,7 @@ import java.util.List;
 import java.awt.Color;
 
 class Letter {
-    public List<Vector> vertices = new ArrayList();
+    public List<Vector> vertices = new ArrayList<>();
     public List<Face> faces = new ArrayList<>();
 
     public void addVertex(double x, double y, double z) {
@@ -16,57 +16,14 @@ class Letter {
         faces.add(new Face(color, indices));
     }
 
-    public static Letter createLetterA() {
-        Letter a = new Letter();
-
-        a.addVertex(-2, -3, 0);
-        a.addVertex(-1, -3, 0);
-        a.addVertex(0, 1, 0);
-        a.addVertex(0, 3, 0);
-
-        a.addVertex(2, -3, 0);
-        a.addVertex(1, -3, 0);
-
-        a.addVertex(-0.5, -1, 0);
-        a.addVertex(0.5, -1, 0);
-        a.addVertex(0.25, 0, 0);
-        a.addVertex(-0.25, 0, 0);
-
-        a.addVertex(-2, -3, 2);
-        a.addVertex(-1, -3, 2);
-        a.addVertex(0, 1, 2);
-        a.addVertex(0, 3, 2);
-        a.addVertex(2, -3, 2);
-        a.addVertex(1, -3, 2);
-        a.addVertex(-0.5, -1, 2);
-        a.addVertex(0.5, -1, 2);
-        a.addVertex(0.25, 0, 2);
-        a.addVertex(-0.25, 0, 2);
-
-        a.addFace(new Color(200, 0, 0), 0, 1, 2, 3);
-        a.addFace(new Color(200, 0, 0), 3, 2, 5, 4);
-        a.addFace(new Color(200, 0, 0), 6, 7, 8, 9);
-
-        a.addFace(new Color(0, 0, 200), 10, 11, 12, 13);
-        a.addFace(new Color(0, 0, 200), 13, 12, 15, 14);
-        a.addFace(new Color(0, 0, 200), 16, 17, 18, 19);
-
-        a.addFace(Color.GRAY, 0, 3, 13, 10);
-        a.addFace(Color.GRAY, 4, 3, 13, 14);
-        a.addFace(Color.DARK_GRAY, 0, 1, 11, 10);
-        a.addFace(Color.DARK_GRAY, 4, 5, 15, 14);
-
-        return a;
-    }
-
     public static Letter createWord(String text) {
         Letter word = new Letter();
 
-        double letterWidth = 4.0;
-        double spacing = 1.0;
+        double letterWidth = 4;
+        double spacing = 1;
         double step = letterWidth + spacing;
 
-        double startX = -((text.length() - 1) * step) / 2.0;
+        double startX = -((text.length() - 1) * step) / 2;
 
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
@@ -117,7 +74,7 @@ class Letter {
         word.addVertex(0.25 + offsetX, 0, 1);
         word.addVertex(-0.25 + offsetX, 0, 1);
 
-        word.addFace(new Color(200, 0, 0), 0+o, 1+o, 2+o, 3+o);
+        word.addFace(new Color(200, 0, 0), o, 1+o, 2+o, 3+o);
         word.addFace(new Color(200, 0, 0), 3+o, 2+o, 5+o, 4+o);
         word.addFace(new Color(200, 0, 0), 6+o, 7+o, 8+o, 9+o);
 
@@ -125,7 +82,7 @@ class Letter {
         word.addFace(new Color(0, 0, 200), 13+o, 12+o, 15+o, 14+o);
         word.addFace(new Color(0, 0, 200), 16+o, 17+o, 18+o, 19+o);
 
-        word.addFace(Color.GRAY, 0+o, 3+o, 13+o, 10+o);
+        word.addFace(Color.GRAY, o, 3+o, 13+o, 10+o);
         word.addFace(Color.GRAY, 4+o, 3+o, 13+o, 14+o);
         word.addFace(Color.GRAY, 1+o, 2+o, 12+o, 11+o);
         word.addFace(Color.GRAY, 2+o, 5+o, 15+o, 12+o);
@@ -133,7 +90,7 @@ class Letter {
         word.addFace(Color.DARK_GRAY, 9+o, 8+o, 18+o, 19+o);
         word.addFace(Color.GRAY, 6+o, 9+o, 19+o, 16+o);
         word.addFace(Color.GRAY, 7+o, 8+o, 18+o, 17+o);
-        word.addFace(Color.DARK_GRAY, 0+o, 1+o, 11+o, 10+o);
+        word.addFace(Color.DARK_GRAY, o, 1+o, 11+o, 10+o);
         word.addFace(Color.DARK_GRAY, 4+o, 5+o, 15+o, 14+o);
     }
 
@@ -154,17 +111,17 @@ class Letter {
         word.addVertex(2 + offsetX, 3, 1);
         word.addVertex(-2 + offsetX, 3, 1);
 
-        word.addFace(new Color(200, 0, 0), 0+o, 1+o, 2+o, 5+o);
+        word.addFace(new Color(200, 0, 0), o, 1+o, 2+o, 5+o);
         word.addFace(new Color(200, 0, 0), 2+o, 3+o, 4+o, 5+o);
         word.addFace(new Color(0, 0, 200), 6+o, 7+o, 8+o, 11+o);
         word.addFace(new Color(0, 0, 200), 8+o, 9+o, 10+o, 11+o);
 
-        word.addFace(Color.DARK_GRAY, 0+o, 1+o, 7+o, 6+o);
+        word.addFace(Color.DARK_GRAY, o, 1+o, 7+o, 6+o);
         word.addFace(Color.GRAY, 1+o, 2+o, 8+o, 7+o);
         word.addFace(Color.DARK_GRAY, 2+o, 3+o, 9+o, 8+o);
         word.addFace(Color.GRAY, 3+o, 4+o, 10+o, 9+o);
         word.addFace(Color.DARK_GRAY, 5+o, 4+o, 10+o, 11+o);
-        word.addFace(Color.GRAY, 0+o, 5+o, 11+o, 6+o);
+        word.addFace(Color.GRAY, o, 5+o, 11+o, 6+o);
     }
 
     private static void buildLetterN(Letter word, double offsetX) {
@@ -204,7 +161,7 @@ class Letter {
         word.addFace(new Color(0, 0, 200), 14+o, 15+o, 20+o, 21+o);
         word.addFace(new Color(0, 0, 200), 16+o, 17+o, 18+o, 19+o);
 
-        word.addFace(Color.DARK_GRAY, 0+o, 1+o, 13+o, 12+o);
+        word.addFace(Color.DARK_GRAY, o, 1+o, 13+o, 12+o);
         word.addFace(Color.GRAY, 1+o, 2+o, 14+o, 13+o);
         word.addFace(Color.DARK_GRAY, 2+o, 3+o, 15+o, 14+o);
         word.addFace(Color.GRAY, 3+o, 4+o, 16+o, 15+o);
@@ -215,6 +172,6 @@ class Letter {
         word.addFace(Color.DARK_GRAY, 8+o, 9+o, 21+o, 20+o);
         word.addFace(Color.GRAY, 9+o, 10+o, 22+o, 21+o);
         word.addFace(Color.DARK_GRAY, 10+o, 11+o, 23+o, 22+o);
-        word.addFace(Color.GRAY, 11+o, 0+o, 12+o, 23+o);
+        word.addFace(Color.GRAY, 11+o, o, 12+o, 23+o);
     }
 }

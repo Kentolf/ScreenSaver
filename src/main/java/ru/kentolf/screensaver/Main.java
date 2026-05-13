@@ -10,15 +10,20 @@ public class Main {
             input = "AAA";
         }
 
-        input = input.toUpperCase();
-
-        if (input.length() > 6) {
-            input = input.substring(0, 6);
+        if (input.length() > 10) {
+            JOptionPane.showMessageDialog(null, "Слишком длинное слово, оно будет обрезано до 10 букв");
+            input = input.substring(0, 10);
         }
+
+        input = input.toUpperCase();
 
         JFrame frame = new JFrame();
 
         frame.setSize(1280, 720);
+
+        frame.setTitle("Screensaver");
+
+        frame.setLocationRelativeTo(null);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
